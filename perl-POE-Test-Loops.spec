@@ -4,7 +4,7 @@
 #
 Name     : perl-POE-Test-Loops
 Version  : 1.360
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/R/RC/RCAPUTO/POE-Test-Loops-1.360.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/R/RC/RCAPUTO/POE-Test-Loops-1.360.tar.gz
 Summary  : 'Reusable tests for POE::Loop authors'
@@ -12,6 +12,7 @@ Group    : Development/Tools
 License  : Artistic-1.0-Perl
 Requires: perl-POE-Test-Loops-bin = %{version}-%{release}
 Requires: perl-POE-Test-Loops-man = %{version}-%{release}
+Requires: perl-POE-Test-Loops-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -47,8 +48,18 @@ Group: Default
 man components for the perl-POE-Test-Loops package.
 
 
+%package perl
+Summary: perl components for the perl-POE-Test-Loops package.
+Group: Default
+Requires: perl-POE-Test-Loops = %{version}-%{release}
+
+%description perl
+perl components for the perl-POE-Test-Loops package.
+
+
 %prep
 %setup -q -n POE-Test-Loops-1.360
+cd %{_builddir}/POE-Test-Loops-1.360
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -84,43 +95,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/DondeEstan.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/00_info.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/all_errors.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/comp_tcp.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/comp_tcp_concurrent.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/connect_errors.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/k_alarms.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/k_aliases.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/k_detach.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/k_run_returns.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/k_selects.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/k_sig_child.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/k_signals.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/k_signals_rerun.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/sbk_signal_init.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/ses_nfa.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/ses_session.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/wheel_accept.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/wheel_curses.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/wheel_readline.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/wheel_readwrite.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/wheel_run.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/wheel_run_size.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/wheel_sf_ipv6.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/wheel_sf_tcp.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/wheel_sf_udp.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/wheel_sf_unix.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/wheel_tail.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/z_kogman_sig_order.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/z_leolo_wheel_run.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/z_merijn_sigchld_system.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/z_rt39872_sigchld.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/z_rt39872_sigchld_stop.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/z_rt53302_fh_watchers.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/z_rt54319_bazerka_followtail.pm
-/usr/lib/perl5/vendor_perl/5.28.2/POE/Test/Loops/z_steinert_signal_integrity.pm
 
 %files bin
 %defattr(-,root,root,-)
@@ -133,3 +107,43 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %files man
 %defattr(0644,root,root,0755)
 /usr/share/man/man1/poe-gen-tests.1
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/DondeEstan.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/00_info.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/all_errors.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/comp_tcp.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/comp_tcp_concurrent.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/connect_errors.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/k_alarms.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/k_aliases.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/k_detach.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/k_run_returns.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/k_selects.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/k_sig_child.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/k_signals.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/k_signals_rerun.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/sbk_signal_init.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/ses_nfa.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/ses_session.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/wheel_accept.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/wheel_curses.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/wheel_readline.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/wheel_readwrite.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/wheel_run.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/wheel_run_size.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/wheel_sf_ipv6.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/wheel_sf_tcp.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/wheel_sf_udp.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/wheel_sf_unix.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/wheel_tail.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/z_kogman_sig_order.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/z_leolo_wheel_run.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/z_merijn_sigchld_system.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/z_rt39872_sigchld.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/z_rt39872_sigchld_stop.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/z_rt53302_fh_watchers.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/z_rt54319_bazerka_followtail.pm
+/usr/lib/perl5/vendor_perl/5.30.1/POE/Test/Loops/z_steinert_signal_integrity.pm
