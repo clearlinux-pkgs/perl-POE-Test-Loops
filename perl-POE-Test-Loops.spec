@@ -5,7 +5,7 @@
 #
 Name     : perl-POE-Test-Loops
 Version  : 1.360
-Release  : 16
+Release  : 17
 URL      : https://cpan.metacpan.org/authors/id/R/RC/RCAPUTO/POE-Test-Loops-1.360.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/R/RC/RCAPUTO/POE-Test-Loops-1.360.tar.gz
 Summary  : 'Reusable tests for POE::Loop authors'
